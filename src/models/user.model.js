@@ -37,22 +37,27 @@ const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
             beforeCreate: (user) => {
               const salt = genSaltSync(10);
               user.password = hashSync(user.password, salt);
-            },
+            }
           },
           instanceMethods: {
             validPassword: function(password) {
               return compareSync(password, this.password);
-            },
-            toJSON: function (user) {
-                var user = Object.assign({}, this.get());
-          
-                delete user.password;
-                return user;
-              }
-            
+            }
         }
         
     });
+
+    User.prototype.toJSON =  function () {
+        var values = Object.assign({}, this.get());
+      
+        delete values.password
+        delete values.created_by
+        delete values.created_on
+        delete values.updated_by
+        delete values.updated_on
+        return values;
+    }
+
  module.exports = User;
 
 
