@@ -1,6 +1,7 @@
 const { sequelize } = require("./conexion")
 const { Sequelize } = require("sequelize");
 const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
+const uuid = require("uuid-random");
 
 
     const User = sequelize.define("user",{
@@ -9,7 +10,7 @@ const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
             primaryKey: true
         },
         uuid:{
-            type: Sequelize.TEXT
+            type: Sequelize.TEXT,
         },
         user_name:{
             type: Sequelize.TEXT
@@ -37,6 +38,9 @@ const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
             beforeCreate: (user) => {
               const salt = genSaltSync(10);
               user.password = hashSync(user.password, salt);
+            },
+            beforeCreate: (user) =>{
+                user.uuid = uuid(user.password);
             }
           },
           instanceMethods: {
