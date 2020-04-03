@@ -5,7 +5,7 @@ class UserController {
         _userService: UserService;
     }
 
-    async createUser(req,res){
+    async create(req,res){
         const { body } = req;
 
         const createUser = await _userService.createUser(body);

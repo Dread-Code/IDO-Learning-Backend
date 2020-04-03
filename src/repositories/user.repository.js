@@ -8,7 +8,7 @@ class UserRepository {
 
     async createUser(user){
         
-        return await User.create({ user });
+        return await _user.create({ user });
     }
 
 }
