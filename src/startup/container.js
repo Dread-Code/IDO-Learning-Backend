@@ -29,7 +29,7 @@ const{
 //models
 const {
     User
-} = require("../models");
+} = require("../../index");
 
 //repositories
 const {

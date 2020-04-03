@@ -6,6 +6,7 @@ class UserService {
     }
 
     async createUser(user){
+        console.log(user);
         return await _userRepository.createUser(user);
     }
 
