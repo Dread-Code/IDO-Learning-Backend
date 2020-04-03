@@ -21,7 +21,8 @@ const {
 
 //Routes
 const{
-    HomeRoutes
+    HomeRoutes,
+    UserRoutes
 } = require("../routes/index.routes");
 
 
@@ -51,7 +52,8 @@ container
     UserController: asClass(UserController.bind(UserController)).singleton(),
 })
 .register({
-    HomeRoutes: asFunction(HomeRoutes).singleton()
+    HomeRoutes: asFunction(HomeRoutes).singleton(),
+    UserRoutes: asFunction(UserRoutes).singleton()
 })
 .register({
     User: asValue(User)
