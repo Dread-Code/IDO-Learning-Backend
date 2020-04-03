@@ -28,8 +28,9 @@ const{
 
 //models
 const {
+    sequilize,
     User
-} = require("../../index");
+} = require("../models");
 
 //repositories
 const {
@@ -41,7 +42,8 @@ container
 .register({
     app: asClass(app).singleton(),
     router: asFunction(Routes).singleton(),
-    config: asValue(config)
+    config: asValue(config),
+    sequilize: asValue(sequilize)
 })
 .register({
     HomeService: asClass(HomeService).singleton(),

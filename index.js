@@ -1,10 +1,8 @@
 const container = require("./src/startup/container");
 const server = container.resolve("app");
-const  { POSTGRES_URI } = container.resolve("config");
+const  { sequelize } = container.resolve("sequilize");
 
-const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(POSTGRES_URI);
 
 
 sequelize

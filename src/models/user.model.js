@@ -1,7 +1,8 @@
-const { sequelize } = require("../../index");
+const { sequelize } = require("./conexion")
 const { Sequelize } = require("sequelize");
+const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
 
-module.exports = (sequelize,Sequelize) =>{
+
     const User = sequelize.define("user",{
         row_id:{
             type: Sequelize.INTEGER,
@@ -32,27 +33,29 @@ module.exports = (sequelize,Sequelize) =>{
         schema: "security",
         timestamps: false,
         freezeTableName: true,
-        instanceMethods:{
-            generateHash(password){
-                return hashSync(password,genSaltSync(10));
+        hooks: {
+            beforeCreate: (user) => {
+              const salt = genSaltSync(10);
+              user.password = hashSync(user.password, salt);
             },
-            validPassword(password){
-                return compareSync(password,this.password);
+          },
+          instanceMethods: {
+            validPassword: function(password) {
+              return compareSync(password, this.password);
             },
-            toJSON: function () {
-                var values = Object.assign({}, this.get());
+            toJSON: function (user) {
+                var user = Object.assign({}, this.get());
           
-                delete values.password;
-                return values;
+                delete user.password;
+                return user;
               }
-        },
+            
+        }
         
     });
+ module.exports = User;
 
 
-    return User;
-}
 
     
     
-
