@@ -1,4 +1,4 @@
-const { sequelize } = require("./conexion")
+const { sequelize } = require("./connection")
 const { Sequelize } = require("sequelize");
 const { hashSync, genSaltSync, compareSync } = require("bcryptjs");
 const uuid = require("uuid-random");
