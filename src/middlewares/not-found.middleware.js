@@ -1,6 +1,6 @@
-module.exports = (req,res,next) =>{
+module.exports = (req, res, next) => {
     res.status(404).send({
-        status:404,
+        status: 404,
         Message: "Resource not found"
     });
 }

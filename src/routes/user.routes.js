@@ -1,9 +1,9 @@
-const { Router } = require("express"); 
+const { Router } = require("express");
 
-module.exports =({UserController}) =>{
+module.exports = ({ UserController }) => {
     const router = Router();
 
-    router.post("/signup",UserController.create);
-    
+    router.post("/signup", UserController.create);
+
     return router; // No estaba retornando este hpta router .l.
 }

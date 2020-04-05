@@ -16,7 +16,7 @@ module.exports = {
 //puerto
 process.env.PORT = process.env.PORT || 3000;
 //name
-process.env.APPLICATION_NAME = process.env.APPLICATION_NAME || "IDO APP" 
+process.env.APPLICATION_NAME = process.env.APPLICATION_NAME || "IDO APP"
 
 // enviroment
 process.env.NODE_ENV = process.env.NODE_ENV || "dev"

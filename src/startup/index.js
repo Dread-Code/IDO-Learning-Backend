@@ -5,14 +5,14 @@ let _config = null;
 
 class Server {
 
-    constructor({ config, router }){
+    constructor({ config, router }) {
         _config = config;
         _express = express().use(router);
     }
-    
-    start(){
-        return new Promise(resolve =>{
-            _express.listen(_config.PORT, () =>{
+
+    start() {
+        return new Promise(resolve => {
+            _express.listen(_config.PORT, () => {
                 console.log(_config.APPLICATION_NAME + " running on port " + _config.PORT);
 
                 resolve();

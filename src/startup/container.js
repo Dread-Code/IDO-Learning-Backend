@@ -20,7 +20,7 @@ const {
 } = require("../controllers");
 
 //Routes
-const{
+const {
     HomeRoutes,
     UserRoutes
 } = require("../routes/index.routes");
@@ -39,29 +39,29 @@ const {
 
 
 container
-.register({
-    app: asClass(app).singleton(),
-    router: asFunction(Routes).singleton(),
-    config: asValue(config),
-    sequilize: asValue(sequilize)
-})
-.register({
-    HomeService: asClass(HomeService).singleton(),
-    UserService: asClass(UserService).singleton()
-})
-.register({
-    HomeController: asClass(HomeController.bind(HomeController)).singleton(),
-    UserController: asClass(UserController.bind(UserController)).singleton(),
-})
-.register({
-    HomeRoutes: asFunction(HomeRoutes).singleton(),
-    UserRoutes: asFunction(UserRoutes).singleton()
-})
-.register({
-    User: asValue(User)
-})
-.register({
-    UserRepository: asClass(UserRepository).singleton()
-})
+    .register({
+        app: asClass(app).singleton(),
+        router: asFunction(Routes).singleton(),
+        config: asValue(config),
+        sequilize: asValue(sequilize)
+    })
+    .register({
+        HomeService: asClass(HomeService).singleton(),
+        UserService: asClass(UserService).singleton()
+    })
+    .register({
+        HomeController: asClass(HomeController.bind(HomeController)).singleton(),
+        UserController: asClass(UserController.bind(UserController)).singleton(),
+    })
+    .register({
+        HomeRoutes: asFunction(HomeRoutes).singleton(),
+        UserRoutes: asFunction(UserRoutes).singleton()
+    })
+    .register({
+        User: asValue(User)
+    })
+    .register({
+        UserRepository: asClass(UserRepository).singleton()
+    })
 
 module.exports = container;

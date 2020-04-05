@@ -1,6 +1,6 @@
-class HomeService{
-    index(){
-        return{
+class HomeService {
+    index() {
+        return {
             message: "Hello IDO!"
         }
     }
