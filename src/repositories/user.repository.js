@@ -6,10 +6,10 @@ class UserRepository {
         _user = User;
     }
 
-    async createUser(user){
+    async createUser(user) {
         console.log(user);
-        const { uuid, user_name, password} = user.body;
-        return await _user.create({ uuid, user_name, password},{
+        console.log("repository");
+        return await _user.create(user, {
             fields: ["uuid", "user_name", "password"]
         });
     }

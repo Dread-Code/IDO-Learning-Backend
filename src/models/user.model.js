@@ -59,6 +59,7 @@ const uuid = require("uuid-random");
         delete values.created_on
         delete values.updated_by
         delete values.updated_on
+        delete values.row_id
         return values;
     }
 

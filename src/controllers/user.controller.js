@@ -5,13 +5,17 @@ class UserController {
         _userService = UserService;
     }
 
-    async create(req,res){
-        const { body } = req;
+    async create(req, res) {
+        const body = req.body;
         console.log(body);
-        const createUser = await _userService.createUser({ body });
-        return res.send(createUser);// estaba reornando mal 
-    }
+        console.log("Controller");
+        let message = { message: "ok" };
+        const result = await _userService.createUser(body);
 
+        if (result) {
+            return res.send(message);
+        }
+    }
 }
 
 module.exports = UserController;
