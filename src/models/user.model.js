@@ -38,8 +38,6 @@ const User = sequelize.define("user", {
         beforeCreate: (user) => {
             const salt = genSaltSync(10);
             user.password = hashSync(user.password, salt);
-        },
-        beforeCreate: (user) => {
             user.uuid = uuid(user.password);
         }
     },
